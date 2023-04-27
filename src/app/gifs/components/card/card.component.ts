@@ -9,8 +9,7 @@ import { GifsService } from '../../services/gifs.service';
 })
 export class CardComponent implements OnInit {
 
-  @Input()
-  public gifCard!: Gif;
+  @Input() public gifCard!: Gif; 
 
   ngOnInit(): void {
     if(!this.gifCard) throw new Error('Gif property is required');
