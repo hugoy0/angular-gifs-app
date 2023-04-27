@@ -30,6 +30,7 @@ export class GifsService {
 
   searchTag(tag: string):void {
     if (tag == '' || tag.length === 0) return;
+
     this.organizeHistory(tag);
 
     const params = new HttpParams()
@@ -38,10 +39,9 @@ export class GifsService {
                   .set('q', tag);
 
     this.http.get<SearchResponse>(`${this.serviceURL}search?`, {params})
-    .subscribe((response:SearchResponse) => {
-      this.gifsList = response.data;
-      console.log(this.gifsList);
-    });
+      .subscribe((response:SearchResponse) => {
+        this.gifsList = response.data;
+      });
   }
 
 }
